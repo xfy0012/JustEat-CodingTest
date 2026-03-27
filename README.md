@@ -41,7 +41,11 @@ Restaurants:[
 
 # Design Structure.
 
-RestaurantCard - CardUI to show the four fields. 
+RestaurantCard - CardUI to show the four fields. (name, cuisine, rate, address)
+RestaurantList - loop each card for each restaurant. 
+
+
+
 
 ## Test Setup (Vitest + React Testing Library)
 

@@ -11,6 +11,6 @@ const mockRestaurant = {
 
 test('show restaurant name', () => {
   render(<RestaurantCard restaurant={mockRestaurant} />)
-  const nameElement = screen.getByText(/Curry Queen/i)
+  const nameElement = screen.getByText('Curry Queen')
   expect(nameElement).toBeInTheDocument()
 })
