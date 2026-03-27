@@ -43,6 +43,11 @@ Restaurants:[
 
 RestaurantCard - CardUI to show the four fields. (name, cuisine, rate, address)
 RestaurantList - loop each card for each restaurant. 
+SearchBar - for user input postcode and vaild the input postcode.
+
+
+# Improvement
+SearchBar - the logic about the vaild the input postcode. further can use the Royal Mail Postcode Lookup Api to vaild the postcode input.
 
 
 
@@ -77,4 +82,3 @@ npm run test:run
 
 Current test example:
 
-- `src/components/RestaurantCard.test.jsx`
