@@ -1,94 +1,92 @@
 # JUSTEAT-CODINGTEST
-A React web app for the Just Eat Takeaway Early Careers coding assignment. Enter UK postcode to find the top 10 restaurants in that area, showing name, cuisines, star rating, and address.
 
-# Assignment Criteria Checklist
-1. Display name, cuisines, Rating as a number, Address
-2. Limit to first 10 restaurants
+A React web app for the Just Eat Takeaway Early Careers coding assignment.
+Users enter a UK postcode and the app shows restaurant cards with name, cuisines, rating, and address.
 
-# assumption
-1. cuisines display: all cuisines in the restaurants
-2. address display: only display the city, firstline and postalcode.
+## Tech Stack
 
+- React + Vite
+- Vitest + React Testing Library
 
-# Data Scheme needed example
-Restaurants:[
-{"id":"92519","name":"Curry Queen","uniqueName":"curry-queen-islington",
-"address":{"city":"London",
-"firstLine":"1 Shenfield Street",
-"postalCode":"N1 6SE","location":{"type":"Point","coordinates":[-0.08,51.531169]}},
-"rating":{"count":2177,"starRating":5,"userRating":null},
-"isNew":false,"driveDistanceMeters":2293,"openingTimeLocal":"2026-03-28T13:00:00","deliveryOpeningTimeLocal":"2026-03-27T16:00:00","deliveryEtaMinutes":{"rangeLower":25,"rangeUpper":40},"isCollection":true,"isDelivery":true,"isOpenNowForCollection":true,"isOpenNowForDelivery":true,"isOpenNowForPreorder":false,"isTemporarilyOffline":false,"deliveryCost":0,"minimumDeliveryValue":15,"defaultDisplayRank":0,"isTemporaryBoost":false,"isPremier":false,"logoUrl":"https://d30v2pzvrfyzpo.cloudfront.net/uk/images/restaurants/92519.gif","isTestRestaurant":false,"deals":[{"description":"Save 40% • Spend £20","offerType":"Percent"}],"tags":[],
-"cuisines":[{"name":"Indian","uniqueName":"indian"},{"name":"Curry","uniqueName":"curry"},{"name":"Halal","uniqueName":"halal"},{"name":"Deals","uniqueName":"deals"}],
-"availability":{"delivery":{"isOpen":true,"canPreOrder":false,"isTemporarilyOffline":false,"nextAvailability":{"from":"2026-03-28T13:00:00"},"etaMinutes":{"rangeLower":25,"rangeUpper":40}},"collection":{"isOpen":true,"canPreOrder":false,"isTemporarilyOffline":false,"nextAvailability":{"from":"2026-03-28T13:00:00"},"etaMinutes":{"approximate":15}}}},]
+## Assignment Criteria Checklist
 
-{
-    "name": "Curry Queeen",
-    "cuisines":[
-        { "name": "Indian" },
-        { "name": "Curry" },
-        { "name": "Halal" },
-        { "name": "Deals" }
-    ]
-    "rating":{
-        "startRating": 5
-    }
-    "address":{
-        "city": "London",
-        "firstLine": "1 Shenfield Street",
-        "postalCode": "N1 6SE"
-    }
-}
+1. Display name, cuisines, rating (number), and address.
+2. Limit results to the first 10 restaurants.
 
-# Design Structure.
+## How to Build, Compile, and Run
 
-RestaurantCard - CardUI to show the four fields. (name, cuisine, rate, address)
-RestaurantList - loop each card for each restaurant. 
-SearchBar - for user input postcode and vaild the input postcode.
-App
-handlesearch function:
-fetch api
-take top 10 data
-set restaurant
-using vite's server proxy to deal with the CROS problem. justeat api not allow from localhost to call the api.
+### Prerequisites
 
+- Node.js 18+
+- npm 9+
 
-
-# Improvement
-SearchBar - the logic about the vaild the input postcode. further can use the Royal Mail Postcode Lookup Api to vaild the postcode input.
-in production enviroment, no need the vite server proxy
-
-
-
-
-
-
-## Test Setup (Vitest + React Testing Library)
-
-This project uses `vitest`, `jsdom`, `@testing-library/react`, and `@testing-library/jest-dom`.
-
-Install dependencies:
+### 1) Install dependencies
 
 ```bash
 npm install
 ```
 
-If you need to install test dependencies manually:
+### 2) Run in development
 
 ```bash
-npm i -D vitest jsdom @testing-library/react @testing-library/jest-dom
+npm run dev
 ```
 
-Run tests:
+Open `http://localhost:5173`.
+
+## How to Test
 
 ```bash
 npm test
 ```
 
-Run tests once (CI style):
+Current test files:
 
-```bash
-npm run test:run
+- `src/App.test.jsx`
+- `src/components/SearchBar.test.jsx`
+- `src/components/RestaurantCard.test.jsx`
+- `src/components/RestaurantList.test.jsx`
+
+## Assumptions Unclear Points
+
+1. "10 restaurants" is interpreted as the first 10 entries returned by the API response order.
+2. Cuisines are displayed as all cuisine names joined by commas.
+3. Address display uses `city`, `firstLine`, and `postalCode`.
+4. In local development, API calls are made via Vite proxy (`/api`) to avoid CORS issues from browser direct calls.
+
+## Data Example
+
+```json
+{
+  "name": "Curry Queen",
+  "cuisines": [
+    { "name": "Indian" },
+    { "name": "Curry" },
+    { "name": "Halal" },
+    { "name": "Deals" }
+  ],
+  "rating": {
+    "starRating": 4.5
+  },
+  "address": {
+    "city": "London",
+    "firstLine": "1 Shenfield Street",
+    "postalCode": "N1 6SE"
+  }
+}
 ```
 
-Current test example:
+## Design Structure
+
+- `src/components/RestaurantCard.jsx`: card UI for name, cuisines, rating, address
+- `src/components/RestaurantList.jsx`: renders a list of restaurant cards
+- `src/components/SearchBar.jsx`: postcode input + validation + submit
+- `src/App.jsx`: search handler, API fetch, top-10 selection, state management
+
+Data flow:
+User input → SearchBar → App (fetch API) → RestaurantList → RestaurantCard × 10
+
+
+## Future Improvements
+1. Improve postcode validation with a dedicated service (for example Royal Mail lookup).
 
