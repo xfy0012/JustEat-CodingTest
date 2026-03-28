@@ -1,111 +1,213 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+:root{
+  --bg: #fff7ed;
+  --surface: #fffcf8;
+  --surface-strong: #ffffff;
+  --ink: #26221c;
+  --ink-muted: #6f6659;
+  --line: #eedfce;
+  --brand: #d6452f;
+  --brand-soft: #fde9dd;
+  --accent: #0f766e;
+  --danger: #b42318;
+  --shadow-soft: 0 14px 30px rgba(131, 99, 68, 0.12);
+  --shadow-card: 0 10px 24px rgba(107, 85, 58, 0.1);
 }
 
 body {
   margin: 0;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 8% 4%, rgba(214, 69, 47, 0.18), transparent 28%),
+    radial-gradient(circle at 92% 8%, rgba(15, 118, 110, 0.15), transparent 24%),
+    linear-gradient(180deg, #fff8ef 0%, #fff4e7 100%);
+  min-height: 100vh;
 }
-
 #root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 2rem 1.1rem 2.8rem;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+.app-shell {
+  width: min(1080px, 100%);
+  margin: 0 auto;
+}
+
+.hero {
+  background: linear-gradient(135deg, #fff9f1 0%, #ffeede 100%);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 1.5rem 1.4rem 1.25rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.hero-kicker {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--brand);
 }
 
 h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+  margin: 0.5rem 0 0.45rem;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  font-size: clamp(1.6rem, 2.6vw, 2.35rem);
+  line-height: 1.1;
 }
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
+
+.hero-subtitle {
   margin: 0;
+  max-width: 58ch;
+  color: var(--ink-muted);
+  font-size: 0.97rem;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+.search-panel {
+  margin-top: 1rem;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem;
+  backdrop-filter: blur(6px);
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.search-form {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.search-label {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--ink-muted);
+}
+
+.search-row {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.search-input {
+  width: 100%;
+  border: 1px solid #e5d4be;
+  border-radius: 12px;
+  background: #fff;
+  color: var(--ink);
+  padding: 0.82rem 0.95rem;
+  font-size: 0.97rem;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #da6748;
+  box-shadow: 0 0 0 4px rgba(214, 69, 47, 0.15);
+}
+
+.search-button {
+  border: 0;
+  border-radius: 12px;
+  padding: 0.82rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg, #de5438 0%, #c1301e 100%);
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.search-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(193, 48, 30, 0.25);
+}
+
+.search-button:active {
+  transform: translateY(0);
+}
+
+.restaurant-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+
+.restaurant-empty-state {
+  border: 1px dashed #e3cfb6;
+  border-radius: 14px;
+  padding: 1rem;
+  text-align: center;
+    color: var(--ink-muted);
+  background: var(--surface);
+}
+
+.card {
+  background: var(--surface-strong);
+  border: 1px solid #ecd9c1;
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: var(--shadow-card);
+  display: grid;
+  gap: 0.55rem;
+}
+
+.card-title {
+  margin: 0;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+.cuisines {
+  margin: 0;
+  color: #4f463c;
+  font-size: 0.91rem;
+}
+
+.rating {
+  margin: 0;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.address {
+  margin: 0;
+  color: #6d6458;
+  font-size: 0.9rem;
+}
+
+@media (min-width: 640px) {
+  #root {
+    padding: 2.3rem 1.35rem 3rem;
+  }
+
+  .search-row {
+    grid-template-columns: 1fr auto;
+  }
+
+  .search-button {
+    min-width: 132px;
+  }
+
+  .restaurant-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 960px) {
+  .hero {
+    padding: 1.9rem 1.9rem 1.45rem;
+  }
+
+  .search-panel {
+    padding: 1.15rem;
+  }
+
+  .restaurant-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }

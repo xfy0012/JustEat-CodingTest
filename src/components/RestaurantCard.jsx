@@ -7,7 +7,7 @@ function RestaurantCard({ restaurant }) {
 
     return (
         <div className="card">
-            <h2>{name}</h2>
+            <h2 className="card-title">{name}</h2>
             <p className="cuisines">{cusisineNames.length ? cusisineNames : 'Various'}</p>
             <p className="rating">★ {startRating !== null ? Number(startRating).toFixed(1) : 'N/A'}</p>
             <p className="address">{addressLine || 'Address unavailable'}</p>

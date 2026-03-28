@@ -30,11 +30,25 @@ function App() {
 
     return(
       //search bar component to input postcode and trigger search
-      <div className="App">
+      <div className="app-shell">
+        <header className = "hero">
+          <p className="hero-kicker">Just Eat Coding Test</p>
+          <h1>Find Resturnat Near You </h1>
+          <p className="hero-subtitle">
+            Enter a UK postcode to browse restaurants with cuisine, ratings and addresses.
+          </p>
+        </header>
+        <section className = "search-panel">
         <SearchBar onSearch={handleSearch} />
+        </section>
+
         {/* restaurant list component to display the list of restaurants */}
+        
+        <section className="results-panel">
         <RestaurantList restaurants={restaurants} />
+        </section>
       </div>
+      
     );
 }
 

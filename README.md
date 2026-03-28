@@ -5,7 +5,7 @@ Users enter a UK postcode and the app shows restaurant cards with name, cuisines
 
 ## Tech Stack
 
-- React + Vite
+- React + Vite + CSS
 - Vitest + React Testing Library
 
 ## Assignment Criteria Checklist
@@ -86,6 +86,8 @@ Current test files:
 Data flow:
 User input → SearchBar → App (fetch API) → RestaurantList → RestaurantCard × 10
 
+## Solution Improvements
+1. UI optimized with CSS, improve the card layout, spacing.
 
 ## Future Improvements
 1. Improve postcode validation with a dedicated service (for example Royal Mail lookup).

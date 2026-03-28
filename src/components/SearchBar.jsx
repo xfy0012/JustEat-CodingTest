@@ -26,15 +26,16 @@ function SearchBar({onSearch}) {
     };
 
     return (
-        <form onSubmit = {handleSubmit}>
+        <form className='search-form' onSubmit = {handleSubmit}>
             <input
+                className='search-input'
                 type = "text"
                 value = {query}
                 // Update the query state on input change
                 onChange = {(e) => setQuery(e.target.value)}
                 placeholder = "Enter a UK postcode e.g EC4M 7RF"
             />
-            <button type = "submit">Search</button>
+            <button className='search-button' type = "submit">Search</button>
             {error && <p>{error}</p>}
         </form>
     )
