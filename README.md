@@ -7,7 +7,7 @@ A React web app for the Just Eat Takeaway Early Careers coding assignment. Enter
 
 # assumption
 1. cuisines display: all cuisines in the restaurants
-2. address display: only display the city firstline and postalcode.
+2. address display: only display the city, firstline and postalcode.
 
 
 # Data Scheme needed example
@@ -44,10 +44,20 @@ Restaurants:[
 RestaurantCard - CardUI to show the four fields. (name, cuisine, rate, address)
 RestaurantList - loop each card for each restaurant. 
 SearchBar - for user input postcode and vaild the input postcode.
+App
+handlesearch function:
+fetch api
+take top 10 data
+set restaurant
+using vite's server proxy to deal with the CROS problem. justeat api not allow from localhost to call the api.
+
 
 
 # Improvement
 SearchBar - the logic about the vaild the input postcode. further can use the Royal Mail Postcode Lookup Api to vaild the postcode input.
+in production enviroment, no need the vite server proxy
+
+
 
 
 
