@@ -3,8 +3,10 @@
 A React web app for the Just Eat Takeaway Early Careers coding assignment.
 Users enter a UK postcode and the app shows restaurant cards with name, cuisines, rating, and address.
 
-# Demo
-<video src="src/assets/demo.mov" controls width="600"></video>
+## Demo
+
+https://github.com/user-attachments/assets/591a9cf6-96be-43bc-bba0-dfbf7a6ad62b
+
 
 ## Tech Stack
 
