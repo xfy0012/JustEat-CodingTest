@@ -3,6 +3,9 @@
 A React web app for the Just Eat Takeaway Early Careers coding assignment.
 Users enter a UK postcode and the app shows restaurant cards with name, cuisines, rating, and address.
 
+# Demo
+<video src="src/assets/demo.mov" controls width="600"></video>
+
 ## Tech Stack
 
 - React + Vite + CSS
@@ -86,9 +89,10 @@ Current test files:
 Data flow:
 User input → SearchBar → App (fetch API) → RestaurantList → RestaurantCard × 10
 
-## Solution Improvements
-1. UI optimized with CSS, improve the card layout, spacing.
 
 ## Future Improvements
-1. Improve postcode validation with a dedicated service (for example Royal Mail lookup).
+1. Improve postcode validation with a dedicated service (for example, the Royal Mail lookup API).
+2. Add CI checks (`lint` + `test` + `build`) and basic monitoring/logging.
+3. Consider caching and other performance optimizations if the dataset size grows.
+4. Optionally add simple sorting/filtering (e.g., by rating or cuisine) to improve the user experience.
 
